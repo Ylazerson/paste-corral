@@ -19,10 +19,10 @@ type PastesResp struct {
 
 // Paste contains core info for a single PasteBin paste.
 type Paste struct {
-	Author    string    `json:"author"`
-	Title     string    `json:"title"`
-	Content   string    `json:"content"`
-	PasteDate time.Time `json:"pdate"`
+	Author    string `json:"author"`
+	Title     string `json:"title"`
+	Content   string `json:"content"`
+	PasteDate string `json:"pdate"`
 }
 
 func init() {
@@ -65,12 +65,14 @@ func CreateRawPaste(author, title, content, dt string) (err error) {
 func Pastes() (pResp PastesResp, err error) {
 
 	sqlStmt := `
-	    select   author, 
-                 title,
-                 content,
-                 created_at
-        from     raw_paste_data
-        order by created_at desc
+        select   pa.author,
+                 p.title,
+                 p.paste_content,
+                 to_char(p.paste_date, 'YYYY-DD-MM HH24:MI:SS') pdate
+        from     pastes p
+           inner join paste_authors pa
+              on pa.id = p.author_id
+        order by p.paste_date desc
 	`
 
 	rows, err := Db.Query(sqlStmt)
