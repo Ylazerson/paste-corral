@@ -82,16 +82,16 @@ func GetPasteURLs(archiveURL string) (urls []string) {
 // GetPaste gets the actual pastebin post.
 func GetPaste(pasteURL string) (author, title, content, dt string) {
 
-	time.Sleep(20 * time.Second)
+	time.Sleep(2 * time.Minute)
 
 	c := colly.NewCollector(
 		colly.AllowedDomains("pastebin.com"),
 		colly.AllowURLRevisit(),
 	)
 
-	// Add random delay of a maximum of 3 seconds
+	// Add random delay of a maximum of 7 seconds
 	c.Limit(&colly.LimitRule{
-		RandomDelay: 3 * time.Second,
+		RandomDelay: 7 * time.Second,
 	})
 
 	// Generate a new User-Agent string before every request
