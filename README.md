@@ -8,7 +8,6 @@
 
 
 Paste Corral crawls [pastebin.com](pastebin.com) to collect and store pastes. Paste Corral also provides a REST API endpoint for other developers to then easily consume pastebin data. 
-<br>
 
 See [www.pastecorral.com](www.pastecorral.com) for a live version of Paste Corral.
 - At the moment it only supports a simple GET request.
@@ -66,8 +65,6 @@ You can connect using any PostgreSQL admin tool. If you're using VSCode, the *Po
 If you make any code changes, remember to:
 - Commit and push the changes to your GitHub repo
 - Then push to Heroku as well: `git push heroku master`   
-
-<br>
 
 To view information about your running Heroku app:
 - `heroku logs --tail`

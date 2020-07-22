@@ -6,7 +6,6 @@ import (
 	"os"
 	"time"
 
-	"paste-corral/pastebin"
 	"paste-corral/rest"
 )
 
@@ -14,7 +13,7 @@ func main() {
 
 	// -- --------------------------------------
 	// Run web crawler in concurrent goroutine:
-	go pastebin.Crawl()
+	//go pastebin.Crawl()
 
 	// -- --------------------------------------
 	// Get env info:
