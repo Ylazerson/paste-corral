@@ -10,14 +10,15 @@
 Paste Corral crawls [pastebin.com](pastebin.com) to collect and store pastes. Paste Corral also provides a REST API endpoint for other developers to then easily consume pastebin data. 
 
 
-<h2 style="text-align: center; color:#264653">
-SETUP
-</h2>
+<p align="center">  
+    <font size="+3">Setup</font>
+</p>
 
 
-<h4 style="text-align: center; color:#264653">
-Prerequisite Steps
-</h4>
+<p align="center">  
+    <font size="+2">Prerequisite Steps</font>
+</p>
+
  
 1. Create an account on **Heroku**
 
