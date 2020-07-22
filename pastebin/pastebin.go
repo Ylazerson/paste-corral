@@ -161,12 +161,17 @@ func Crawl() {
 
 		fmt.Println("Starting new crawl cycle.")
 
+		// -- -----------------------------------
 		// ETL existing raw data before next crawl.
-		data.RunPasteDataETL()
+		err := data.RunPasteDataETL()
 
-		archiveURLs := GetArchiveURLs()
+		if err != nil {
+			fmt.Println(err)
+		}
 
 		// -- -----------------------------------
+		archiveURLs := GetArchiveURLs()
+
 		for _, archiveURL := range archiveURLs {
 
 			pasteURLs := GetPasteURLs(archiveURL)
