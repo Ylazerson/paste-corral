@@ -33,9 +33,8 @@ Install **Heroku CLI**
 
 **Step 4:**
 Run `heroku create`
-- This creates a new empty application on Heroku, along with an associated empty Git repository. If you run this command from your app’s root directory, the empty Heroku Git repository is automatically set as a remote for your local repository.
-- Note the remote branch by running `git remote -v`
-- Note, the file `Procfile` tells Heroku which command(s) to run to start your app.
+- This creates a new empty application on Heroku, along with an associated empty Git repository. 
+- Run this command from your app’s root directory, so the empty Heroku Git repository is automatically set as a remote for your local repository.
 
 
 **Step 5:**
