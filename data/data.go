@@ -33,7 +33,7 @@ func CreateRawPaste(author, title, content, dt string) (err error) {
                paste_date,
 			   created_at
 			   )
-		values ($1, $2, $3, $4)`
+		values ($1, $2, $3, $4, $5)`
 
 	stmt, err := Db.Prepare(statement)
 

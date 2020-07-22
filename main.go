@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	time.Sleep(2 * time.Hour)
+	//time.Sleep(2 * time.Hour)
 
 	// Run web crawler in concurrent goroutine:
 	go pastebin.Crawl()
