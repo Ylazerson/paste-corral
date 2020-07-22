@@ -8,6 +8,12 @@
 
 
 Paste Corral crawls [pastebin.com](pastebin.com) to collect and store pastes. Paste Corral also provides a REST API endpoint for other developers to then easily consume pastebin data. 
+<br>
+
+See [www.pastecorral.com](www.pastecorral.com) for a live version of Paste Corral.
+- At the moment it only supports a simple GET request.
+- You can test it using `curl -i -X GET www.pastecorral.com`
+
 
 
 ## Setup
@@ -53,251 +59,20 @@ You can view your credentials using the `heroku config` command.
 You can connect using any PostgreSQL admin tool. If you're using VSCode, the *PostgreSQL Explorer* extension works great. 
 
 
-zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-
-
-#### Git it on up:
-- Note this will be the general flow for working with Git now that we have Heroku remote as well.
-
-```sh
-go mod tidy
-go mod vendor
-go test
-
-git status
-git add --all
-git commit -a  -m 'Initial launch'
-git push heroku master
-
-# Push to GitHub as well:
-git push origin master
-```
 
 ---
 
-### Run your app on **Heroku**:
+## General Notes
 
-As a handy shortcut, you can open the website as follows:
-- `heroku open`
+If you make any code changes, remember to:
+- Commit and push the changes to your GitHub repo
+- Then push to Heroku as well: `git push heroku master`   
 
-View information about your running app:
+<br>
+
+To view information about your running Heroku app:
 - `heroku logs --tail`
 
+To open your Heroku app (in this case a REST API endpoint):
+- `heroku open`
 
-
---- 
-
-## Run the app locally:
-
-### Build package:
-
-**Syntax**: `go build [-o output] [-i] [build flags] [packages]`
-
-See https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies
-- `o` : write the resulting executable or object to the named output file or director
-- `v` : prints the names of packages and files as they are processed
-
-
-```sh
-go build -o bin/chitchat -v .
-```
-
-- Start your app locally using the `heroku local` command.
-    - This is installed as part of the Heroku CLI.
-    - Just like Heroku, it examines the `Procfile` to determine what to run.
-
-```sh
-heroku local web
-```
-
-- Open http://localhost:8080 with your web browser. 
-- To stop the app from running locally, go back to your terminal window and press `Ctrl+C` to exit.
-
-
-
-
-
----
-
-## Setting Up A Custom Domain For Your Heroku-Hosted App
-
-Note the glossary:
-- https://devcenter.heroku.com/articles/custom-domains#domain-name-glossary
-
-Approach taken here is based on:
-- https://devcenter.heroku.com/articles/custom-domains
-- https://medium.com/@ethanryan/setting-up-a-custom-domain-for-your-heroku-hosted-app-6c011e75aa3d
-
-#### Step 1:
-- Buy a custom domain name (I used name.com)
-- Example used below is for domain `b7forum.com`
-
-#### Step 2:
-
-```sh
-heroku domains:add www.b7forum.com
-
-heroku domains:wait 'www.b7forum.com' 
-```
-
-Note the output; configure your app's DNS provider to point to the DNS Target:
-- `integrative-kiwi-i8a0bariil1ahajauz37x4n6.herokudns.com`
-
-
-#### Step 3: Add a custom root domain.
-
-```sh
-heroku domains:add b7forum.com
-
-heroku domains:wait 'b7forum.com' 
-```
-
-Note the output, configure your app's DNS provider to point to the DNS Target:
-- `still-sprout-wdcdz1tpzkyitakes8rs9x7z.herokudns.com`
-
-
-
-#### Step 4:
-- Add the DNS Records in name.com (or whatever site you bought your domain on).
-
-![](docs/dns.png)
-
-
-#### Step 5:
-View existing domains:
-- `heroku domains`
-
-... Now wait a few minutes ...
-
-
-
----
-NOT NEEDED YET:
-
-#### Step ???:
- 
-
-- Set your config variables on Heroku.
-- Note, `$PORT` is automatically set by Heroku on web dynos - so don't set that one.
-
-`heroku config:set REPEAT=10`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-### Prerequisite Step 1 - get this Go module up and running:
-
-
-```sh
-# Create a new module (initialize the go.mod file) 
-go mod init sandbox/testrest
-```
-
----
-
-### Prerequisite Step 2: Follow instructions in `/03-storing-data/04-sql/psql/md` 
-
----
-
-
-
-### Step 1 - Build Package:
-```sh
-go install
-```
-
-
-### Step 2: Start up the server:
-```sh
-testrest
-```
-
----
-
-## Run Tests
-
-### Run basic CRUD tests in `curl`
-- C: Create
-- R: Read
-- U: Update
-- D: Delete
-
-
----
-### CREATE
-
-```sh
-
-# Create:
-curl -i -X POST -H "Content-Type: application/json"  -d '{"content":"My first post","author":"Sau Sheong"}' http://127.0.0.1:8080/post/
-
-```
-
-
-```sh
-psql
-
-\c gwp
-```
-
-
-```sql
-select   *
-from     posts
-;
-```
-
-
----
-### READ
-
-```sh
-
-# Read
-curl -i -X GET http://127.0.0.1:8080/post/1
-
-```
-
-
----
-
-### UPDATE
-
-```sh
-
-# Update:
-curl -i -X PUT -H "Content-Type: application/json"  -d '{"content":"Updated post","author":"Sau Sheong"}' http://127.0.0.1:8080/post/1
-
-```
-
-```sql
-select   *
-from     posts
-;
-```
-
-
----
-
-### DELETE
-
-```sh
-
-# Delete
-curl -i -X DELETE http://127.0.0.1:8080/post/1
-
-```
