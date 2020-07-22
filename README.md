@@ -50,7 +50,9 @@ Show the `$DATABASE_URL` environment variable:
 
 
 **Step 6:**
-Connect to the Heroku PostgreSQL instance and run the `data/setup.sql` script.
+Connect to the Heroku PostgreSQL instance and run:
+1. `data/ddl/setup.sql` 
+2. `data/ddl/paste_data_etl.sql` 
 
 You can view your credentials using the `heroku config` command.
 

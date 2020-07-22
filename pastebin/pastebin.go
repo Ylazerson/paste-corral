@@ -159,6 +159,9 @@ func Crawl() {
 	// Infinite loop:
 	for {
 
+		// ETL existing raw data before next crawl.
+		data.RunPasteDataETL()
+
 		archiveURLs := GetArchiveURLs()
 
 		// -- -----------------------------------

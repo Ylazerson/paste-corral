@@ -96,3 +96,20 @@ func Pastes() (pResp PastesResp, err error) {
 
 	return pResp, err
 }
+
+// RunPasteDataETL kicks off the paste_data_etl proc.
+func RunPasteDataETL() (err error) {
+
+	stmt, err := Db.Prepare(`call paste_data_etl()`)
+
+	if err != nil {
+		return
+	}
+
+	defer stmt.Close()
+
+	_, err = stmt.Exec()
+
+	return
+
+}
