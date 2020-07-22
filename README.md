@@ -23,6 +23,14 @@ See [www.pastecorral.com/api](www.pastecorral.com/api) for a live version of Pas
 |`pdate`|The date the paste was created (UTC)|
 
 
+**Web Crawler and ETL Overview**
+
+<p align="center">  
+    <img src=".img/process-overview.jpg" alt=""/>
+</p>
+
+---
+
 ## Setup
 
 **Step 1:**
