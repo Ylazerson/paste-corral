@@ -10,38 +10,29 @@
 Paste Corral crawls [pastebin.com](pastebin.com) to collect and store pastes. Paste Corral also provides a REST API endpoint for other developers to then easily consume pastebin data. 
 
 
-<p align="center">  
-    <font size="+3">Setup</font>
-</p>
-
-
-<p align="center">  
-    <font size="+2">Prerequisite Steps</font>
-</p>
-
- 
-1. Create an account on **Heroku**
-
-2. Install **Heroku CLI** 
-    - https://devcenter.heroku.com/articles/heroku-cli
-
-
-<h4 style="text-align: center; color:#264653">
-Setup Steps
-</h4>
+### Setup
 
 **Step 1:**
 Fork and then clone this GitHub repo.
 
 
 **Step 2:**
-Run `heroku create`
-- This creates a new empty application on Heroku, along with an associated empty Git repository. If you run this command from your app’s root directory, the empty Heroku Git repository is automatically set as a remote for your local repository.
-- `git remote -v`
-- Note, the file `Procfile` tells Heroku which command(s) to run to start your app.
+Create an account on **Heroku**
 
 
 **Step 3:**
+Install **Heroku CLI** 
+- https://devcenter.heroku.com/articles/heroku-cli
+
+
+**Step 4:**
+Run `heroku create`
+- This creates a new empty application on Heroku, along with an associated empty Git repository. If you run this command from your app’s root directory, the empty Heroku Git repository is automatically set as a remote for your local repository.
+- Note the remote branch by running `git remote -v`
+- Note, the file `Procfile` tells Heroku which command(s) to run to start your app.
+
+
+**Step 5:**
 Add a free Heroku Postgres Starter Tier dev database to your app:
 - `heroku addons:create heroku-postgresql:hobby-dev`
 
