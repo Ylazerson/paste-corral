@@ -10,9 +10,17 @@
 Paste Corral crawls [pastebin.com](pastebin.com) to collect, clean, and store PasteBin posts. Paste Corral concurrently provides a REST API endpoint so developers can easily consume cleaned PasteBin data to perform analytics. 
 
 See [www.pastecorral.com/api](www.pastecorral.com/api) for a live version of Paste Corral.
-- At the moment it only supports a simple GET request.
+- At the moment it only supports using a simple GET request method.
 - You can test it using `curl -i -X GET http://pastecorral.com/api`
 
+**API JSON Response**
+
+|Field Name   |Definition   |
+|---|---|
+|`author`|The paste author|
+|`title`|The paste title|
+|`content`|The paste content|
+|`pdate`|The date the paste was created (UTC)|
 
 
 ## Setup
