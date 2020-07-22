@@ -1,8 +1,8 @@
-
 package pastebin
 
 import (
 	"fmt"
+	"paste-corral/data"
 	"regexp"
 	"strings"
 	"time"
@@ -171,7 +171,11 @@ func Crawl() {
 
 				author, title, content, dt := GetPaste(pasteURL)
 
-				fmt.Println(author, title, content, dt)
+				err := data.CreateRawPaste(author, title, content, dt)
+
+				if err != nil {
+					fmt.Println(err)
+				}
 
 			}
 
