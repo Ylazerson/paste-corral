@@ -1,1 +1,1 @@
-web: bin/chitchat
+web: bin/paste-corral

@@ -56,17 +56,6 @@ You can connect using any PostgreSQL admin tool. If you're using VSCode, the *Po
 zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 
 
-#### Step 7:
-- Run `heroku config` to get the Heroku app name
-- Open that app on your Heroku dashboard: https://dashboard.heroku.com/apps
-- Open the PostgreSQL add-on for that app.
-- View Credentials on the Settings app.
-- Create connection in **PostgreSQL Explorer** Extension
-
-#### Step 8:
-- Using pgAdmin run 
-
-
 #### Git it on up:
 - Note this will be the general flow for working with Git now that we have Heroku remote as well.
 
