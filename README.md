@@ -45,6 +45,12 @@ Show the `$DATABASE_URL` environment variable:
 - Add that `DATABASE_URL` environment variable to the `.env` file.
 
 
+**Step 6:**
+Connect to the Heroku PostgreSQL instance and run the `data/setup.sql` script.
+
+You can view your credentials using the `heroku config` command.
+
+You can connect using any PostgreSQL admin tool. If you're using VSCode, the *PostgreSQL Explorer* extension works great. 
 
 
 zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
@@ -58,7 +64,7 @@ zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 - Create connection in **PostgreSQL Explorer** Extension
 
 #### Step 8:
-- Using pgAdmin run the `data/setup.sql` script.
+- Using pgAdmin run 
 
 
 #### Git it on up:
