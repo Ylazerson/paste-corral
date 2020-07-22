@@ -7,7 +7,7 @@
 
 
 
-Paste Corral crawls [pastebin.com](pastebin.com) to collect and store pastes. Paste Corral also provides a REST API endpoint for other developers to then easily consume pastebin data. 
+Paste Corral crawls [pastebin.com](pastebin.com) to collect, clean, and store PasteBin posts. Paste Corral concurrently provides a REST API endpoint so developers can easily consume cleaned PasteBin data to perform analytics. 
 
 See [www.pastecorral.com](www.pastecorral.com) for a live version of Paste Corral.
 - At the moment it only supports a simple GET request.
