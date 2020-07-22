@@ -10,7 +10,7 @@
 Paste Corral crawls [pastebin.com](pastebin.com) to collect and store pastes. Paste Corral also provides a REST API endpoint for other developers to then easily consume pastebin data. 
 
 
-### Setup
+## Setup
 
 **Step 1:**
 Fork and then clone this GitHub repo.
