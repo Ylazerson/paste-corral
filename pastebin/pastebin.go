@@ -159,6 +159,8 @@ func Crawl() {
 	// Infinite loop:
 	for {
 
+		fmt.Println("Starting new crawl cycle.")
+
 		// ETL existing raw data before next crawl.
 		data.RunPasteDataETL()
 
