@@ -172,15 +172,18 @@ func Crawl() {
 
 		// -- -----------------------------------
 		archiveURLs := GetArchiveURLs()
+		fmt.Println("archiveURLs:", archiveURLs)
 
 		for _, archiveURL := range archiveURLs {
 
 			pasteURLs := GetPasteURLs(archiveURL)
+			fmt.Println("pasteURLs", pasteURLs)
 
 			// -- -------------------------------
 			for _, pasteURL := range pasteURLs {
 
 				author, title, content, dt := GetPaste(pasteURL)
+				fmt.Println("paste info:", author, title, content, dt)
 
 				err := data.CreateRawPaste(author, title, content, dt)
 
