@@ -2,6 +2,7 @@ package data
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"os"
 	"time"
@@ -51,6 +52,7 @@ func CreateRawPaste(author, title, content, dt string) (err error) {
 	stmt, err := Db.Prepare(statement)
 
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 
@@ -78,6 +80,7 @@ func Pastes() (pResp PastesResp, err error) {
 	rows, err := Db.Query(sqlStmt)
 
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 
@@ -105,6 +108,7 @@ func RunPasteDataETL() (err error) {
 	stmt, err := Db.Prepare(`call paste_data_etl()`)
 
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 

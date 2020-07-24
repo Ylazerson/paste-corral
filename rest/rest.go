@@ -2,6 +2,7 @@ package rest
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"paste-corral/data"
 )
@@ -34,6 +35,7 @@ func handleGet(w http.ResponseWriter, r *http.Request) (err error) {
 	pasteResp, err := data.Pastes()
 
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 
@@ -42,6 +44,7 @@ func handleGet(w http.ResponseWriter, r *http.Request) (err error) {
 	output, err := json.MarshalIndent(&pasteResp, "", "\t\t")
 
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 

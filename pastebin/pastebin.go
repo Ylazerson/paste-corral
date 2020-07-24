@@ -139,6 +139,7 @@ func GetPaste(pasteURL string) (author, title, content, dt string) {
 
 		// incorrect attr
 		if err != nil {
+			fmt.Println(err)
 			return
 		}
 
