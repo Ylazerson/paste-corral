@@ -30,6 +30,11 @@ func main() {
 	// Setup server mux:
 	mux := http.NewServeMux()
 
+	// For file server purposes:
+	files := http.FileServer(http.Dir(config.Static))
+	mux.Handle("/static/", http.StripPrefix("/static/", files))
+
+	// The main handler:
 	mux.HandleFunc("/", rest.HandleRequest)
 
 	// starting up the server
